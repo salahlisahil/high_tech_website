@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=">
+  <title>Responsive Contact Us Page</title>
+  <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+</head>
+
+<body>
+  <section>
+
+    <div class="section-header">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p>"Good communication is the bridge to understanding. It's the bond that connects people, enabling them to
+          share their thoughts, ideas, and emotions. At our core, we believe in the power of communication, and we're
+          here to listen, connect, and engage with you. Reach out to us and let's start a meaningful conversation to
+          help you" </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <i class="fas fa-home"></i>
+            </div>
+
+            <div class="contact-info-content">
+              <h4>Address</h4>
+              <p>4671 Sugar Camp Road,<br /> Owatonna, Minnesota, <br />55060</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+
+            <div class="contact-info-content">
+              <h4>Phone</h4>
+              <p>561-456-2321</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+
+            <div class="contact-info-content">
+              <h4>Email</h4>
+              <p>example@email.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form action="" method="post" id="contact-form">
+            <h2>Send Message</h2>
+            <div class="input-box">
+              <input type="text" required="true" name="full_name">
+              <span>Full Name</span>
+            </div>
+
+            <div class="input-box">
+              <input type="email" required="true" name="user_email">
+              <span>Email</span>
+            </div>
+
+            <div class="input-box">
+              <input type="text" required="true" name="subject">
+              <span>Subject</span>
+            </div>
+
+            <div class="input-box">
+              <textarea required="true" name="message"></textarea>
+              <span>Type your Message...</span>
+            </div>
+
+            <div class="input-box">
+              {% with messages = get_flashed_messages(with_categories=true) %}
+              {% for category, message in messages %}
+              {% if category == 'success' %}
+              <div style="color: green; margin-bottom: 10px;">{{ message }}</div>
+              {% endif %}
+              {% endfor %}
+              {% endwith %}
+              <input type="submit" value="Send" name="">
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>

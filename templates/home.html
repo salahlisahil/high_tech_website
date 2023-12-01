@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Webpage Design</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const loginForm = document.getElementById("login-form");
+          const messageBox = document.getElementById("message-box");
+      
+          loginForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+      
+            const email = document.querySelector('input[name="email"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+      
+            const response = await fetch("/login", {
+              method: "POST",
+              body: new URLSearchParams({ email, password }),
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+            });
+      
+            const responseData = await response.json();
+      
+            if (responseData.success) {
+             
+              messageBox.innerHTML = responseData.message;
+              messageBox.style.color = "green";
+            } else {
+              
+              messageBox.innerHTML = responseData.message;
+              messageBox.style.color = "red";
+
+            }
+            
+            messageBox.style.display = "block";
+          });
+        });
+      </script>
+      
+      
+</head>
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+               <a href="/"><h2 class="logo">TechCtrl</h2></a>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="about">ABOUT</a></li>
+                    <li><a href="service">SERVICE</a></li>
+                    <li><a href="team">TEAM</a></li>
+                    <li><a href="contact">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="searchTerm" placeholder="Type To text">
+                <a href="service"> <button class="btn">Search</button></a>
+            </div>
+
+        </div> 
+
+        <div class="content">
+            <h1>High-Tech & <br><span>UX/UI Design</span> <br>Services</h1>
+            <p class="par">Through the most innovative team and up-to-date technology, <br> we are here to solve your technical problems 
+                <br> and bring innovative solutions to them</p>
+
+                <button class="cn"><a href="register">JOIN US</a></button>
+
+                <div class="form">
+                    <form id="login-form">
+                        <h2>Login Here</h2>
+                        <input type="email" name="email" placeholder="Enter Email Here">
+                        <input type="password" name="password" placeholder="Enter Password Here">
+                        <div id="message-box" style="display: none;"></div>
+                
+                        <button class="btnn"><a href="/">Login</a></button>
+                
+                        <p class="link">Don't have an account<br>
+                            <a href="register">Sign up</a> here</p>
+                        <p class="liw">Log in with</p>
+                        <div class="icons">
+                            <a href="https://www.facebook.com/"><ion-icon name="logo-facebook"></ion-icon></a>
+                            <a href="https://www.instagram.com/"><ion-icon name="logo-instagram"></ion-icon></a>
+                            <a href="https://twitter.com/"><ion-icon name="logo-twitter"></ion-icon></a>
+                            <a href="https://www.google.com/"><ion-icon name="logo-google"></ion-icon></a>
+                            <a href="https://www.skype.com/en/"><ion-icon name="logo-skype"></ion-icon></a>
+                        </div>
+                    </form>
+                </div>
+                
+                  
+                </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>

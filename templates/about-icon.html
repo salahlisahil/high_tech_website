@@ -1,0 +1,30 @@
+
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+   <meta charset="utf-8">
+   <title>Glowing Social Icons</title>
+   <link rel="stylesheet" href="{{url_for('static', filename='css/about-icon.css')}}">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+   <div class="icons">
+      <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">
+         <ul class="social-media-list">
+             <li><a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+             <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+             <li><a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a></li>
+             <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
+             <li><a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a></li>
+         </ul>
+     </div>
+     
+   </div>
+</body>
+</html>
+
+
+{% endblock %}

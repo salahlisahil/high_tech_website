@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us section </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/about.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+    <section class="about">
+<div class="main">
+    <img src="../static/images/about.avif" alt="" srcset="">
+    <div class="about-text">
+<h1>About Us</h1>
+<h5>Information technology <span> & UX/UI Design </span></h5>
+<p>"For more than 20 years, we've been working in the world of technology. We offer many different tech services. Our clients are really happy with what we do for them. We have a team of skilled experts who understand technology really well." <br><br> "You can reach us anytime with the below button and our social media accounts"</p>
+   <a href="contact"><button type="button">let's talk</button></a>
+    </div>
+</div>
+    </section>
+</body>
+<footer>
+    {% block body %}
+    {% include "about-icon.html" %}
+    {% endblock %}
+</footer>
+</html>
